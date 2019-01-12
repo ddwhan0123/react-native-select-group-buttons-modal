@@ -16,6 +16,9 @@ export default class RNSelectGroupButtonsModal extends React.Component {
     _settingBuild = {
         backdropColor: '#303437',
         backdropOpacity: 0.2,
+        animationIn: 'slideInUp',
+        animationTime: 500,//Default animation duration
+        hideOnBack: true,
     };
 
     constructor(props) {
@@ -37,11 +40,21 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     render() {
         const settingData = this._settingBuild;
+        let modalStyle = this.props.style ? this.props.style : styles.modal_root;//The default permutation is at the bottom
+        const {...otherProps} = this.props;
         return (
             <Modal
                 isVisible={this.state.selectorVisible}
                 backdropColor={settingData.backdropColor}
                 backdropOpacity={settingData.backdropOpacity}
+                style={[modalStyle, styles.modal_root]}
+                animationIn={settingData.animationIn}
+                animationInTiming={settingData.animationTime}
+                animationOutTiming={settingData.animationTime}
+                backdropTransitionInTiming={settingData.animationTime}
+                backdropTransitionOutTiming={settingData.animationTime}
+                hideOnBack={settingData.hideOnBack}
+                {...otherProps}
             >
 
             </Modal>
@@ -49,4 +62,10 @@ export default class RNSelectGroupButtonsModal extends React.Component {
     }
 }
 
-
+const styles = StyleSheet.create({
+    modal_root: {
+        marginHorizontal: 0,
+        marginVertical: 0,
+        justifyContent: 'flex-end',
+    }
+});
