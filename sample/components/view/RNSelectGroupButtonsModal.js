@@ -23,7 +23,8 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     constructor(props) {
         super(props);
-        this._settingBuild = props.settingBuild;//some static props
+        this._settingBuild = props.settingBuild !== undefined && props.settingBuild
+            && props.settingBuild !== null;//some static props
         this.state = {
             selectorVisible: props.selectorVisible,//whether can show modal
         }
@@ -41,7 +42,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
     render() {
         const settingData = this._settingBuild;
         let modalStyle = this.props.style ? this.props.style : styles.modal_root;//The default permutation is at the bottom
-        const {...otherProps} = this.props;
+        const {onModalHide, onBackButtonPress, ...otherProps} = this.props;
         return (
             <Modal
                 isVisible={this.state.selectorVisible}
@@ -54,9 +55,13 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                 backdropTransitionInTiming={settingData.animationTime}
                 backdropTransitionOutTiming={settingData.animationTime}
                 hideOnBack={settingData.hideOnBack}
+                onBackButtonPress={onBackButtonPress}
+                onModalHide={onModalHide}
                 {...otherProps}
             >
-
+                <View style={{width:200,height:300,backgroundColor:'#11aabb'}}>
+                    <Text>10085</Text>
+                </View>
             </Modal>
         )
     }
