@@ -18,18 +18,21 @@ export default class SubmitButtonComponent extends React.Component {
     }
 
     render() {
+        let text = this.props.submitText ? this.props.submitText : '确认';
         let bgColor = this.props.submitButtonBackgroundColor ? this.props.submitButtonBackgroundColor : '#00BCBC';
-        if (!this.props.canSubmit) {
+        if (this.props.canSubmit === false) {
             bgColor = '#CDCED4'
         }
+        const {style} = this.props;
         return (
             <TouchableOpacity
-                style={[styles.submitBtnContainer, bgColor]}
+                style={[styles.submitBtnContainer, {backgroundColor: bgColor},style]}
                 onPress={() => {
+                    if (this.props.onClickSubmitButton && this.props.canSubmit === true) {
+                        this.props.onClickSubmitButton()
+                    }
                 }}>
-                <View>
-
-                </View>
+                <Text style={{color: '#ffffff', fontSize: 16}}>{text}</Text>
             </TouchableOpacity>
         )
     }
@@ -41,12 +44,10 @@ export default class SubmitButtonComponent extends React.Component {
 
 const styles = StyleSheet.create({
     submitBtnContainer: {
-        width: width * 13 / 15,
-        marginLeft: width / 15,
         height: 45,
         borderRadius: width * 45 / 750,
-        marginTop: width * 28 / 750,
-        marginBottom: width * 30 / 750,
         borderWidth: 0,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 });

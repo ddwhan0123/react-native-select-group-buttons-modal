@@ -10,6 +10,7 @@ import {
     StatusBar, Dimensions
 } from "react-native";
 import Modal from 'react-native-modal';
+import SubmitButtonComponent from './button/SubmitButtonComponent';
 
 const {width} = Dimensions.get('window');
 
@@ -103,6 +104,13 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                 </View>
                                 {this.renderCloseButton()}
                             </View>
+                            <SubmitButtonComponent
+                                submitText={'确认'}
+                                canSubmit={true}
+                                style={{marginBottom: 10}}
+                                onClickSubmitButton={() => {
+                                    this.onClickSubmitButton()
+                                }}/>
                         </View>
                     </KeyboardAvoidingView>
                 </View>
@@ -127,6 +135,13 @@ export default class RNSelectGroupButtonsModal extends React.Component {
             </TouchableOpacity>
         )
     };
+
+    //when the submitButton clicked
+    onClickSubmitButton = () => {
+        console.log('---> onClickSubmitButton');
+        this.closeButtonPress()
+    };
+
 
     closeButtonPress = () => {
         if (this.props.closeButtonPress) {
