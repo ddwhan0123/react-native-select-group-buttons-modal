@@ -39,6 +39,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
         this.state = {
             selectorVisible: props.selectorVisible,//whether can show modal
+            canSubmit: true,
         }
     }
 
@@ -106,7 +107,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                             </View>
                             <SubmitButtonComponent
                                 submitText={'确认'}
-                                canSubmit={true}
+                                canSubmit={this.state.canSubmit}
                                 style={{marginBottom: 10}}
                                 onClickSubmitButton={() => {
                                     this.onClickSubmitButton()
@@ -142,7 +143,6 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         this.closeButtonPress()
     };
 
-
     closeButtonPress = () => {
         if (this.props.closeButtonPress) {
             this.setState({
@@ -154,9 +154,8 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     _handlePanResponderGrant = (e, gestureState) => {
         const pageY = e.nativeEvent.changedTouches[0].pageY;
-
         const {y, height} = this._containerLayout;
-
+        //judging the area of contact
         if (pageY < y - 10 || pageY > y + height) {
             if (this.props.closeWithOutSideClick && this.props.closeWithOutSideClick === true) {
                 this.closeButtonPress();
