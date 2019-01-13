@@ -1,7 +1,7 @@
 
 # react-native-select-group-buttons-modal --dev branch
 
-# It's still under development.Please do not try case installation
+It's still under development.Please do not try case installation
 
 ## Getting started
 
