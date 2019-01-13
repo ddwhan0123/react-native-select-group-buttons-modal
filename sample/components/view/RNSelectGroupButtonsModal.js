@@ -24,6 +24,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         animationTime: 500,//Default animation duration
         hideOnBack: true,
         modalTitle: '支付方式',
+        modalTips: '点击下方按钮选择支付方式',
         closeWithOutSideClick: true,
     };
 
@@ -86,8 +87,19 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                         <View style={styles.modal_container_style} onLayout={(event) => {
                             this._containerLayout = event.nativeEvent.layout;
                         }}>
-                            <Text>10085</Text>
-                            {this.renderCloseButton()}
+                            <View style={{
+                                marginTop: 20,
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                            }}>
+                                <View>
+                                    <Text style={{color: '#363C54', fontSize: 16}}>{settingData.modalTitle}</Text>
+                                    <Text style={{color: '#9B9DA9', fontSize: 12,marginTop: 2,}}>{settingData.modalTips}</Text>
+                                </View>
+                                {this.renderCloseButton()}
+                            </View>
+
                         </View>
                     </KeyboardAvoidingView>
                 </View>
@@ -151,6 +163,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     modal_container_style: {
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        paddingHorizontal: 25
     }
 });
