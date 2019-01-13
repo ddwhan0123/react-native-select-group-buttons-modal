@@ -24,12 +24,17 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         animationTime: 500,//Default animation duration
         hideOnBack: true,
         modalTitle: '支付方式',
+        closeWithOutSideClick: true,
     };
 
     constructor(props) {
         super(props);
-        this._settingBuild = props.settingBuild !== undefined && props.settingBuild
-            && props.settingBuild !== null;//some static props
+        if (props.settingBuild !== undefined && props.settingBuild
+            && props.settingBuild !== null) {
+            //some static props
+            this._settingBuild = props.settingBuild
+        }
+
         this.state = {
             selectorVisible: props.selectorVisible,//whether can show modal
         }
@@ -123,7 +128,13 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         const {y, height} = this._containerLayout;
 
         if (pageY < y - 10 || pageY > y + height) {
-            this.closeButtonPress();
+            if (this.props.closeWithOutSideClick && this.props.closeWithOutSideClick === true) {
+                this.closeButtonPress();
+            } else {
+                if (this._settingBuild && this._settingBuild.closeWithOutSideClick) {
+                    this.closeButtonPress();
+                }
+            }
         }
     };
 
