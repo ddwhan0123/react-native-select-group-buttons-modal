@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import Modal from 'react-native-modal';
 import SubmitButtonComponent from './button/SubmitButtonComponent';
-
+import RNSelectGroupButtonsView from './RNSelectGroupButtonsView';
 const {width} = Dimensions.get('window');
 
 export default class RNSelectGroupButtonsModal extends React.Component {
@@ -105,6 +105,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                 </View>
                                 {this.renderCloseButton()}
                             </View>
+                            <RNSelectGroupButtonsView/>
                             <SubmitButtonComponent
                                 submitText={'确认'}
                                 canSubmit={this.state.canSubmit}
@@ -170,7 +171,6 @@ export default class RNSelectGroupButtonsModal extends React.Component {
     _handleStartShouldSetPanResponder = (e, gestureState) => {
         return true;
     };
-
 }
 
 const styles = StyleSheet.create({
