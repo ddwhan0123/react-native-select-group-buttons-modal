@@ -1,7 +1,5 @@
-export default getDataMode
-
 //Creating Object Model
-const getDataMode = (disabled = false, type = TYPE_CREDIT, credit = 0, cash = 0) => {
+export const getDataMode = (disabled = false, type = TYPE_CREDIT, credit = 0, cash = 0) => {
     return {
         'disabled': disabled,
         'mode': type,

@@ -61,6 +61,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
     };
 
     render() {
+        const datas = this.props.data;
         const settingData = this._settingBuild;
         let modalStyle = this.props.style ? this.props.style : styles.modal_root;//The default permutation is at the bottom
         const {onModalHide, onBackButtonPress, ...otherProps} = this.props;
