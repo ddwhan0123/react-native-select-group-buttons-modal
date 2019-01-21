@@ -17,7 +17,6 @@ const {width, height} = Dimensions.get('window');
 export default class RNSelectItemButton extends React.Component {
 
     _selected = false;//Default is not selected
-    _touchDisabled = false;
 
     constructor(props) {
         super(props);
@@ -60,15 +59,6 @@ export default class RNSelectItemButton extends React.Component {
                 return;
             }
             if (this.props.onPress) {
-                if (this._touchDisabled) {
-                    return;
-                }
-                this._touchDisabled = true;
-
-                setTimeout(() => {
-                    this._touchDisabled = false;
-                }, 200);
-
                 let selected = this._selected;
                 if (!selected) {
                     this._selected = !this._selected;

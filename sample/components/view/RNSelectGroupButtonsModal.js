@@ -12,7 +12,8 @@ import {
 import Modal from 'react-native-modal';
 import SubmitButtonComponent from './button/SubmitButtonComponent';
 import RNSelectGroupButtonsView from './RNSelectGroupButtonsView';
-const {width} = Dimensions.get('window');
+
+const {width, height} = Dimensions.get('window');
 
 export default class RNSelectGroupButtonsModal extends React.Component {
 
@@ -155,9 +156,9 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     _handlePanResponderGrant = (e, gestureState) => {
         const pageY = e.nativeEvent.changedTouches[0].pageY;
-        const {y, height} = this._containerLayout;
+        const modalHeight = this._containerLayout.height;
         //judging the area of contact
-        if (pageY < y - 10 || pageY > y + height) {
+        if (pageY < (height - modalHeight)) {
             if (this.props.closeWithOutSideClick && this.props.closeWithOutSideClick === true) {
                 this.closeButtonPress();
             } else {
