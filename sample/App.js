@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-navigation';//not necessary,just use for sample
-
+import getDataMode, {TYPE_CREDIT} from './components/view/DataMode';
 import RNSelectGroupButtonsModal from './components/view/RNSelectGroupButtonsModal';
 
 export default class App extends React.Component {
@@ -11,6 +11,13 @@ export default class App extends React.Component {
             selectorVisible: false
         };
     }
+
+
+    initData = () => {
+        let data = [];
+        data[0] = getDataMode(true, TYPE_CREDIT, 100);
+        return data;
+    };
 
     render() {
         return (

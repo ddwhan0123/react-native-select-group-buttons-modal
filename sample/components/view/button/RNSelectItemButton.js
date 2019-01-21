@@ -111,6 +111,7 @@ export default class RNSelectItemButton extends React.Component {
         )
     };
 
+    //Provide external calls
     changeSelectedState = (selected) => {
         if (this._selected !== selected) {
             this._selected = selected;
