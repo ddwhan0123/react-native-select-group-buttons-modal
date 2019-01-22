@@ -25,8 +25,9 @@ export default class RNSelectItemButton extends React.Component {
 
         this.state = {
             selected: this._selected,
-            disabled: this._disabled
-        }
+            disabled: this._disabled,
+            data: props.itemData
+        };
     }
 
     componentWillReceiveProps(nextProps) {
@@ -129,10 +130,11 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderWidth: 1,
         paddingVertical: 2,
+        marginTop:SCALE_DIMENSION_SIZE(10),
         marginVertical: SCALE_DIMENSION_SIZE(4),
         paddingHorizontal: SCALE_DIMENSION_SIZE(4),
         minHeight: SCALE_DIMENSION_SIZE(70),
-        marginHorizontal: SCALE_DIMENSION_SIZE(8),
+        marginHorizontal: SCALE_DIMENSION_SIZE(20),
     },
     disabled_border: {
         borderColor: "#696D7F",

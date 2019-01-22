@@ -61,7 +61,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
     };
 
     render() {
-        const datas = this.props.data;
+        const data = this.props.data;
         const settingData = this._settingBuild;
         let modalStyle = this.props.style ? this.props.style : styles.modal_root;//The default permutation is at the bottom
         const {onModalHide, onBackButtonPress, ...otherProps} = this.props;
@@ -107,7 +107,10 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                 </View>
                                 {this.renderCloseButton()}
                             </View>
-                            <RNSelectGroupButtonsView/>
+                            <RNSelectGroupButtonsView
+                                onPaymentModeChanged={(item,index)=>{}}
+                                data={data}
+                                defaultMode={data[0]}/>
                             <SubmitButtonComponent
                                 submitText={'确认'}
                                 canSubmit={this.state.canSubmit}
