@@ -12,7 +12,7 @@ import {
 import {SCALE_DIMENSION_SIZE} from "../../common/styles";
 
 const {width, height} = Dimensions.get('window');
-
+import ItemButtonComponent from './ItemButtonComponent';
 
 export default class RNSelectItemButton extends React.Component {
 
@@ -106,9 +106,9 @@ export default class RNSelectItemButton extends React.Component {
 
     renderButton = (textColor) => {
         return (
-            <View>
-                <Text style={[{color: textColor}]}>12342</Text>
-            </View>
+            <ItemButtonComponent
+                data={this.state.data}
+                style={textColor}/>
         )
     };
 
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderWidth: 1,
         paddingVertical: 2,
-        marginTop:SCALE_DIMENSION_SIZE(10),
+        marginTop: SCALE_DIMENSION_SIZE(10),
         marginVertical: SCALE_DIMENSION_SIZE(4),
         paddingHorizontal: SCALE_DIMENSION_SIZE(4),
         minHeight: SCALE_DIMENSION_SIZE(70),

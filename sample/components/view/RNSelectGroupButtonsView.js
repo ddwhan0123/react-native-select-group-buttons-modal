@@ -68,5 +68,4 @@ export default class RNSelectGroupButtonsView extends React.Component {
             </View>
         )
     }
-
 }
