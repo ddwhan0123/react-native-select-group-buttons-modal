@@ -16,7 +16,6 @@ import RNSelectGroupButtonsView from './RNSelectGroupButtonsView';
 const {width, height} = Dimensions.get('window');
 
 export default class RNSelectGroupButtonsModal extends React.Component {
-
     _watcher = null;
     _containerLayout;
     _settingBuild = {
@@ -174,7 +173,6 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     //when the submitButton clicked
     onClickSubmitButton = () => {
-        console.log('---> onClickSubmitButton');
         this.closeButtonPress()
     };
 
