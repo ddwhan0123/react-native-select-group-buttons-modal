@@ -164,6 +164,10 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     //render close button to show or hide modal
     renderCloseButton = () => {
+        //you can hide the button after setting it up
+        if (this.props.hideCloseButton && this.props.hideCloseButton === true) {
+            return
+        }
         let defaultIcon = require('../../assets/icon_delete.png');
         if (undefined !== this.props.defaultCloseIcon) {
             defaultIcon = this.props.defaultCloseIcon;
