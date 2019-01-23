@@ -20,7 +20,9 @@ export default class ItemButtonComponent extends React.PureComponent {
     }
 
     render() {
+
         let {styles, data} = this.props;
+
         let creditIcon = this.props.selected ? require('../../../assets/icon_credit.png') :
             require('../../../assets/icon_black_credit.png');
         let cashSymbol = this.props.cashSymbol ? this.props.cashSymbol : '¥';

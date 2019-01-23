@@ -6,6 +6,18 @@ import RNSelectGroupButtonsModal from './components/view/RNSelectGroupButtonsMod
 import RNSelectGroupButtonsView from "./components/view/RNSelectGroupButtonsView";
 
 export default class App extends React.Component {
+
+    _settingBuild = {
+        backdropColor: '#303437',
+        backdropOpacity: 0.2,
+        animationIn: 'slideInUp',
+        animationTime: 400,//Default animation duration
+        hideOnBack: true,
+        modalTitle: '支付方式',
+        modalTips: '业务控制文字内容',
+        closeWithOutSideClick: true,//Click on the grey area to close the bullet window
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -34,6 +46,7 @@ export default class App extends React.Component {
                     <Text>press show modal</Text>
                 </TouchableOpacity>
                 <RNSelectGroupButtonsModal
+                    settingBuild={this._settingBuild}
                     onPaymentModeChanged={(item, index) => {
                         console.log(item);
                     }}
