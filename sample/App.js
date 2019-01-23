@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-navigation';//not necessary,just use for sample
-
+import {getDataMode, TYPE_CASH, TYPE_CREDIT, TYPE_MIX} from './components/view/DataMode';
 import RNSelectGroupButtonsModal from './components/view/RNSelectGroupButtonsModal';
 
 export default class App extends React.Component {
@@ -11,6 +11,15 @@ export default class App extends React.Component {
             selectorVisible: false
         };
     }
+
+    initData = () => {
+        let data = [];
+        data[0] = getDataMode(false, TYPE_CREDIT, 600);
+        data[1] = getDataMode(false, TYPE_CASH, 0, 500);
+        data[2] = getDataMode(false, TYPE_MIX, 100, 200);
+        data[3] = getDataMode(true, TYPE_MIX, 300, 400);
+        return data;
+    };
 
     render() {
         return (
@@ -24,6 +33,7 @@ export default class App extends React.Component {
                     <Text>press show modal</Text>
                 </TouchableOpacity>
                 <RNSelectGroupButtonsModal
+                    data={this.initData()}
                     closeButtonPress={(flag) => {
                         this.setState({
                             selectorVisible: flag

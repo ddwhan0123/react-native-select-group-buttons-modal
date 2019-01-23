@@ -12,12 +12,11 @@ import {
 import {SCALE_DIMENSION_SIZE} from "../../common/styles";
 
 const {width, height} = Dimensions.get('window');
-
+import ItemButtonComponent from './ItemButtonComponent';
 
 export default class RNSelectItemButton extends React.Component {
 
     _selected = false;//Default is not selected
-    _touchDisabled = false;
 
     constructor(props) {
         super(props);
@@ -26,8 +25,9 @@ export default class RNSelectItemButton extends React.Component {
 
         this.state = {
             selected: this._selected,
-            disabled: this._disabled
-        }
+            disabled: this._disabled,
+            data: props.itemData
+        };
     }
 
     componentWillReceiveProps(nextProps) {
@@ -60,15 +60,6 @@ export default class RNSelectItemButton extends React.Component {
                 return;
             }
             if (this.props.onPress) {
-                if (this._touchDisabled) {
-                    return;
-                }
-                this._touchDisabled = true;
-
-                setTimeout(() => {
-                    this._touchDisabled = false;
-                }, 200);
-
                 let selected = this._selected;
                 if (!selected) {
                     this._selected = !this._selected;
@@ -103,7 +94,7 @@ export default class RNSelectItemButton extends React.Component {
         return (
             <TouchableOpacity
                 {...touchableProps}
-                style={root_style}
+                style={[root_style, {marginTop: 10}]}
                 accessibilityTraits="button"
                 accessibilityComponentType="button">
                 <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
@@ -115,12 +106,15 @@ export default class RNSelectItemButton extends React.Component {
 
     renderButton = (textColor) => {
         return (
-            <View>
-                <Text style={[{color: textColor}]}>12342</Text>
-            </View>
+            <ItemButtonComponent
+                selected={this.state.selected}
+                data={this.state.data}
+                styles={[{color: textColor}]}
+                cashSymbol={'¥'}/>
         )
     };
 
+    //Provide external calls
     changeSelectedState = (selected) => {
         if (this._selected !== selected) {
             this._selected = selected;
@@ -138,10 +132,11 @@ const styles = StyleSheet.create({
         borderColor: '#999999',
         borderWidth: 1,
         paddingVertical: 2,
+        marginTop: SCALE_DIMENSION_SIZE(10),
         marginVertical: SCALE_DIMENSION_SIZE(4),
         paddingHorizontal: SCALE_DIMENSION_SIZE(4),
         minHeight: SCALE_DIMENSION_SIZE(70),
-        marginHorizontal: SCALE_DIMENSION_SIZE(8),
+        marginHorizontal: SCALE_DIMENSION_SIZE(20),
     },
     disabled_border: {
         borderColor: "#696D7F",
