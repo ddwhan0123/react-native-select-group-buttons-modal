@@ -38,7 +38,7 @@ export default class RNSelectGroupButtonsView extends React.Component {
             <View style={{
                 flexDirection: 'row',
                 marginHorizontal: -SCALE_DIMENSION_SIZE(8),
-                marginBottom: 10,
+                marginBottom: 15,
                 flexWrap: 'wrap'
             }}>
 

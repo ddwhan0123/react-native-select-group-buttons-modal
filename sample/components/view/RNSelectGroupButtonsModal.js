@@ -18,6 +18,7 @@ const {width, height} = Dimensions.get('window');
 export default class RNSelectGroupButtonsModal extends React.Component {
     _watcher = null;
     _containerLayout;
+    defaultMode = null;
     _settingBuild = {
         backdropColor: '#303437',
         backdropOpacity: 0.2,
@@ -36,6 +37,8 @@ export default class RNSelectGroupButtonsModal extends React.Component {
             //some static props
             this._settingBuild = props.settingBuild
         }
+        this.defaultMode = this.props.defaultMode ?
+            this.props.defaultMode : this.props.data[0];
 
         this.state = {
             selectorVisible: props.selectorVisible,//whether can show modal
@@ -109,7 +112,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                     }
                                 }}
                                 data={data}
-                                defaultMode={data[0]}/>
+                                defaultMode={this.defaultMode}/>
                             <SubmitButtonComponent
                                 submitText={'确认'}
                                 canSubmit={this.state.canSubmit}
