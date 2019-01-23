@@ -21,7 +21,8 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectorVisible: false
+            selectorVisible: false,
+            selectText: ''
         };
     }
 
@@ -44,11 +45,14 @@ export default class App extends React.Component {
                     })
                 }}>
                     <Text>press show modal</Text>
+                    <Text>{this.state.selectText}</Text>
                 </TouchableOpacity>
                 <RNSelectGroupButtonsModal
                     settingBuild={this._settingBuild}
                     onPaymentModeChanged={(item, index) => {
-                        console.log(item);
+                        this.setState({
+                            selectText: JSON.stringify(item)
+                        })
                     }}
                     data={this.initData()}
                     closeButtonPress={(flag) => {
