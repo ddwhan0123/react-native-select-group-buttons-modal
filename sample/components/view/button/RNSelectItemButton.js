@@ -94,7 +94,7 @@ export default class RNSelectItemButton extends React.Component {
         return (
             <TouchableOpacity
                 {...touchableProps}
-                style={root_style}
+                style={[root_style, {marginTop: 10}]}
                 accessibilityTraits="button"
                 accessibilityComponentType="button">
                 <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
@@ -107,8 +107,10 @@ export default class RNSelectItemButton extends React.Component {
     renderButton = (textColor) => {
         return (
             <ItemButtonComponent
+                selected={this.state.selected}
                 data={this.state.data}
-                style={textColor}/>
+                styles={[{color: textColor}]}
+                cashSymbol={'¥'}/>
         )
     };
 

@@ -14,10 +14,10 @@ export default class App extends React.Component {
 
     initData = () => {
         let data = [];
-        data[0] = getDataMode(false, TYPE_CREDIT, 100);
-        data[1] = getDataMode(false, TYPE_CASH, 100);
-        data[2] = getDataMode(false, TYPE_MIX, 200, 200);
-        data[3] = getDataMode(true, TYPE_MIX, 200, 200);
+        data[0] = getDataMode(false, TYPE_CREDIT, 600);
+        data[1] = getDataMode(false, TYPE_CASH, 0, 500);
+        data[2] = getDataMode(false, TYPE_MIX, 100, 200);
+        data[3] = getDataMode(true, TYPE_MIX, 300, 400);
         return data;
     };
 

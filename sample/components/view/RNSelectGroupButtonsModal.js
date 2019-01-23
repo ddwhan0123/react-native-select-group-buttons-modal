@@ -102,7 +102,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                     <Text style={{
                                         color: '#9B9DA9',
                                         fontSize: 12,
-                                        marginTop: 8,
+                                        marginTop: 8,  marginBottom: 8,
                                     }}>{settingData.modalTips}</Text>
                                 </View>
                                 {this.renderCloseButton()}
