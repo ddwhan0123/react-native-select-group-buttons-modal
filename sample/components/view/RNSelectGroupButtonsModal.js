@@ -113,7 +113,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                             <SubmitButtonComponent
                                 submitText={'确认'}
                                 canSubmit={this.state.canSubmit}
-                                style={{marginBottom: 10}}
+                                style={this.setSubmitButtonPadding()}
                                 onClickSubmitButton={() => {
                                     this.onClickSubmitButton()
                                 }}/>
@@ -123,6 +123,15 @@ export default class RNSelectGroupButtonsModal extends React.Component {
             </Modal>
         )
     }
+
+    //you can set the distance from the bottom
+    setSubmitButtonPadding = () => {
+        let style = {marginBottom: 20};
+        if (this.props.SubmitButtonStyle) {
+            style = this.props.SubmitButtonStyle;
+        }
+        return style;
+    };
 
     //if need not title,you can transmit ''
     renderTitle = (settingData) => {
