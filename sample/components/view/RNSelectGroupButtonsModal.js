@@ -99,11 +99,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                             }}>
                                 <View>
                                     {this.renderTitle(settingData)}
-                                    <Text style={{
-                                        color: '#9B9DA9',
-                                        fontSize: 12,
-                                        marginTop: 8, marginBottom: 8,
-                                    }}>{settingData.modalTips}</Text>
+                                    {this.renderModalTips(settingData)}
                                 </View>
                                 {this.renderCloseButton()}
                             </View>
@@ -131,13 +127,33 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     //if need not title,you can transmit ''
     renderTitle = (settingData) => {
+        let titleColor = '#363C54';
+        if (this.props.titleColor) {
+            titleColor = this.props.titleColor;
+        }
         if (settingData.modalTitle && settingData.modalTitle.length
             && settingData.modalTitle.length > 0) {
             return (
-                <Text style={{color: '#363C54', fontSize: 16}}>{settingData.modalTitle}</Text>
+                <Text style={{color: titleColor, fontSize: 16}}>{settingData.modalTitle}</Text>
             )
         }
     };
+
+    //if need not tips,you can transmit ''
+    renderModalTips = (settingData) => {
+        let tipsColor = '#9B9DA9';
+        if (this.props.tipsColor) {
+            tipsColor = this.props.tipsColor;
+        }
+        return (
+            <Text style={{
+                color: tipsColor,
+                fontSize: 12,
+                marginTop: 8, marginBottom: 8,
+            }}>{settingData.modalTips}</Text>
+        )
+    };
+
     //render close button to show or hide modal
     renderCloseButton = () => {
         let defaultIcon = require('../../assets/icon_delete.png');
