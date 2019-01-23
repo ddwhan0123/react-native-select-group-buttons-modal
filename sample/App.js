@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-navigation';//not necessary,just use for sample
 import {getDataMode, TYPE_CASH, TYPE_CREDIT, TYPE_MIX} from './components/view/DataMode';
 import RNSelectGroupButtonsModal from './components/view/RNSelectGroupButtonsModal';
+import RNSelectGroupButtonsView from "./components/view/RNSelectGroupButtonsView";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -33,6 +34,9 @@ export default class App extends React.Component {
                     <Text>press show modal</Text>
                 </TouchableOpacity>
                 <RNSelectGroupButtonsModal
+                    onPaymentModeChanged={(item, index) => {
+                        console.log(item);
+                    }}
                     data={this.initData()}
                     closeButtonPress={(flag) => {
                         this.setState({

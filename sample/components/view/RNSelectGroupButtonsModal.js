@@ -102,13 +102,17 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                     <Text style={{
                                         color: '#9B9DA9',
                                         fontSize: 12,
-                                        marginTop: 8,  marginBottom: 8,
+                                        marginTop: 8, marginBottom: 8,
                                     }}>{settingData.modalTips}</Text>
                                 </View>
                                 {this.renderCloseButton()}
                             </View>
                             <RNSelectGroupButtonsView
-                                onPaymentModeChanged={(item,index)=>{}}
+                                onPaymentModeChanged={(item, index) => {
+                                    if (item && this.props.onPaymentModeChanged) {
+                                        this.props.onPaymentModeChanged(item, index);
+                                    }
+                                }}
                                 data={data}
                                 defaultMode={data[0]}/>
                             <SubmitButtonComponent

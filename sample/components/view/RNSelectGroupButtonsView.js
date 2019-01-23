@@ -62,6 +62,7 @@ export default class RNSelectGroupButtonsView extends React.Component {
                             }}
                             selected={this._selectedMode.mode === item.mode}
                             itemData={item}
+                            disabled={item.disabled}
                             key={'key' + index + item.mode}/>
                     )
                 }))}
