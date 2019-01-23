@@ -98,7 +98,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                 alignItems: 'center',
                             }}>
                                 <View>
-                                    <Text style={{color: '#363C54', fontSize: 16}}>{settingData.modalTitle}</Text>
+                                    {this.renderTitle(settingData)}
                                     <Text style={{
                                         color: '#9B9DA9',
                                         fontSize: 12,
@@ -129,6 +129,15 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         )
     }
 
+    //if need not title,you can transmit ''
+    renderTitle = (settingData) => {
+        if (settingData.modalTitle && settingData.modalTitle.length
+            && settingData.modalTitle.length > 0) {
+            return (
+                <Text style={{color: '#363C54', fontSize: 16}}>{settingData.modalTitle}</Text>
+            )
+        }
+    };
     //render close button to show or hide modal
     renderCloseButton = () => {
         let defaultIcon = require('../../assets/icon_delete.png');
