@@ -2,8 +2,8 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-navigation';//not necessary,just use for sample
 import {getDataMode, TYPE_CASH, TYPE_CREDIT, TYPE_MIX} from './components/view/DataMode';
-import RNSelectGroupButtonsModal from './components/view/RNSelectGroupButtonsModal';
-import RNSelectGroupButtonsView from "./components/view/RNSelectGroupButtonsView";
+// import RNSelectGroupButtonsModal from './components/view/RNSelectGroupButtonsModal';
+import RNSelectGroupButtonsModal from "react-native-select-group-buttons-modal";
 
 export default class App extends React.Component {
 
