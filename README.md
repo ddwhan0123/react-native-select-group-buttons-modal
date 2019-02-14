@@ -21,7 +21,7 @@ import RNSelectGroupButtonsModal from 'react-native-select-group-buttons-modal';
 // TODO: What to do with the module?
 RNSelectGroupButtonsModal;
 ```
-## run sample
+## Run Sample
 
 ```javascript
 
