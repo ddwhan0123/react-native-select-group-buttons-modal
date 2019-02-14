@@ -37,7 +37,19 @@ iOS Demonstration Effect<br>
 settingBuild?:object
 ```
 Objects that set underlying properties
-
+```javascript
+  _settingBuild = {
+        backdropColor: '#303437',
+        backdropOpacity: 0.2,
+        animationIn: 'slideInUp',
+        animationTime: 400,//Default animation duration
+        hideOnBack: true,
+        modalTitle: '支付方式',//Main title
+        modalTips: '业务控制文字内容',Subheading
+        closeWithOutSideClick: true,//Click on the grey area to close the bullet window
+    };
+```
+    
 -------
 
 ```javascript
@@ -120,7 +132,6 @@ closeWithOutSideClick?:boolean
 ```
 Click on the outside area to close the bullet window
 
--------
 
 ### Licenses
 
