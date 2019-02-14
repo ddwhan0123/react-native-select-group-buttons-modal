@@ -1,0 +1,9 @@
+{
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://ad-ekm.anonymous.sample.exp.direct",
+  "packagerNgrokUrl": "https://packager.ad-ekm.anonymous.sample.exp.direct",
+  "ngrokPid": 59787,
+  "devToolsPort": 19002,
+  "packagerPort": 19004,
+  "packagerPid": 59773
+}
