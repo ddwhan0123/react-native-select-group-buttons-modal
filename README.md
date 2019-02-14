@@ -25,8 +25,8 @@ RNSelectGroupButtonsModal;
   
 
 
-  
-<figure class="half">
-  <img src="https://raw.githubusercontent.com/ddwhan0123/react-native-select-group-buttons-modal/dev/sample/doc/androidSample.gif" width="27%"/>
-  <img src="https://raw.githubusercontent.com/ddwhan0123/react-native-select-group-buttons-modal/dev/sample/doc/iOS.gif" width="27%"/>
+Android Demonstration Effect<br>
+<img src="https://raw.githubusercontent.com/ddwhan0123/react-native-select-group-buttons-modal/dev/sample/doc/androidSample.gif" width="27%"/><br>
+iOS Demonstration Effect<br>
+<img src="https://raw.githubusercontent.com/ddwhan0123/react-native-select-group-buttons-modal/dev/sample/doc/iOS.gif" width="27%"/>
 </figure>
