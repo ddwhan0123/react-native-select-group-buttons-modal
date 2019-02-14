@@ -11,7 +11,7 @@ It's still under development.Please do not try case installation
 
 `$ react-native link react-native-select-group-buttons-modal`
 
-### Manual installation
+
 
 
 ## Usage
