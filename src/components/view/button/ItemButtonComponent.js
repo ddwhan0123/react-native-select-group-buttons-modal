@@ -23,8 +23,8 @@ export default class ItemButtonComponent extends React.PureComponent {
 
         let {styles, data} = this.props;
 
-        let creditIcon = this.props.selected && !this.props.disabled ? require('../../../assets/icon_credit.png') :
-            require('../../../assets/icon_black_credit.png');
+        let creditIcon = this.props.selected && !this.props.disabled ? require('../../../../assets/icon_credit.png') :
+            require('../../../../assets/icon_black_credit.png');
         let cashSymbol = this.props.cashSymbol ? this.props.cashSymbol : '¥';
         let disableStyle = '#696D7F';
         styles = !this.props._disabled ? styles : {color: disableStyle};

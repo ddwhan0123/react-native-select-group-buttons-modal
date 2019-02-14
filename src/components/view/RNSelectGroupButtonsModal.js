@@ -171,7 +171,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         if (this.props.hideCloseButton && this.props.hideCloseButton === true) {
             return
         }
-        let defaultIcon = require('../../assets/icon_delete.png');
+        let defaultIcon = require('../../../assets/icon_delete.png');
         if (undefined !== this.props.defaultCloseIcon) {
             defaultIcon = this.props.defaultCloseIcon;
         }
