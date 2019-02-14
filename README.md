@@ -22,8 +22,9 @@ import RNSelectGroupButtonsModal from 'react-native-select-group-buttons-modal';
 RNSelectGroupButtonsModal;
 ```
 ## run sample
-npm install expo-cli --global
+
 ```javascript
+
 npm install expo-cli --global //If you haven't installed it before
 
 git clone git@github.com:ddwhan0123/react-native-select-group-buttons-modal.git //clone git 
