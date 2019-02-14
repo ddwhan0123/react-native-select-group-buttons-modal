@@ -1,5 +1,5 @@
 
-# react-native-select-group-buttons-modal --dev branch
+# react-native-select-group-buttons-modal
 
 It's still under development.Please do not try case installation
 
@@ -122,4 +122,8 @@ Click on the outside area to close the bullet window
 
 -------
 
+### Licenses
 
+-------
+
+- MIT
