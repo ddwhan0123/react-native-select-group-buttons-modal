@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sample",
-    "slug": "sample",
+    "name": "react-native-select-group-buttons-modal",
+    "slug": "react-native-select-group-buttons-modal",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

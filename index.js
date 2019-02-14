@@ -1,6 +1,2 @@
-
-import { NativeModules } from 'react-native';
-
-const { RNSelectGroupButtonsModal } = NativeModules;
-
+import RNSelectGroupButtonsModal from './src/components/view/RNSelectGroupButtonsModal';
 export default RNSelectGroupButtonsModal;
