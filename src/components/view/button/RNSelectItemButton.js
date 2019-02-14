@@ -70,9 +70,7 @@ export default class RNSelectItemButton extends React.Component {
                 this.props.onPress && this.props.onPress(this);
             }
         };
-        touchableProps.onPressIn = this.props.onPressIn;
-        touchableProps.onPressOut = this.props.onPressOut;
-        touchableProps.onLongPress = this.props.onLongPress;
+
         let root_style = [];
         let textColor;
         root_style[0] = styles.button_container;
@@ -110,6 +108,7 @@ export default class RNSelectItemButton extends React.Component {
                 selected={this.state.selected}
                 data={this.state.data}
                 styles={[{color: textColor}]}
+                _disabled={this.state._disabled}
                 cashSymbol={'¥'}/>
         )
     };

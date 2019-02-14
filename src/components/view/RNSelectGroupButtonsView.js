@@ -38,7 +38,7 @@ export default class RNSelectGroupButtonsView extends React.Component {
             <View style={{
                 flexDirection: 'row',
                 marginHorizontal: -SCALE_DIMENSION_SIZE(8),
-                marginBottom: 10,
+                marginBottom: 15,
                 flexWrap: 'wrap'
             }}>
 
@@ -62,6 +62,7 @@ export default class RNSelectGroupButtonsView extends React.Component {
                             }}
                             selected={this._selectedMode.mode === item.mode}
                             itemData={item}
+                            disabled={item.disabled}
                             key={'key' + index + item.mode}/>
                     )
                 }))}

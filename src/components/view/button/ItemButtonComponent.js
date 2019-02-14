@@ -20,11 +20,14 @@ export default class ItemButtonComponent extends React.PureComponent {
     }
 
     render() {
-        const {styles, data} = this.props;
-        const creditIcon = this.props.selected ? require('../../../assets/icon_credit.png') :
-            require('../../../assets/icon_black_credit.png');
-        const cashSymbol = this.props.cashSymbol ? this.props.cashSymbol : '¥';
 
+        let {styles, data} = this.props;
+
+        let creditIcon = this.props.selected && !this.props.disabled ? require('../../../assets/icon_credit.png') :
+            require('../../../assets/icon_black_credit.png');
+        let cashSymbol = this.props.cashSymbol ? this.props.cashSymbol : '¥';
+        let disableStyle = '#696D7F';
+        styles = !this.props._disabled ? styles : {color: disableStyle};
         return (
             <View
                 style={{paddingHorizontal: 10}}>

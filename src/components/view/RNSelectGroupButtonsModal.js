@@ -16,9 +16,9 @@ import RNSelectGroupButtonsView from './RNSelectGroupButtonsView';
 const {width, height} = Dimensions.get('window');
 
 export default class RNSelectGroupButtonsModal extends React.Component {
-
     _watcher = null;
     _containerLayout;
+    defaultMode = null;
     _settingBuild = {
         backdropColor: '#303437',
         backdropOpacity: 0.2,
@@ -37,6 +37,8 @@ export default class RNSelectGroupButtonsModal extends React.Component {
             //some static props
             this._settingBuild = props.settingBuild
         }
+        this.defaultMode = this.props.defaultMode ?
+            this.props.defaultMode : this.props.data[0];
 
         this.state = {
             selectorVisible: props.selectorVisible,//whether can show modal
@@ -98,23 +100,23 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                 alignItems: 'center',
                             }}>
                                 <View>
-                                    <Text style={{color: '#363C54', fontSize: 16}}>{settingData.modalTitle}</Text>
-                                    <Text style={{
-                                        color: '#9B9DA9',
-                                        fontSize: 12,
-                                        marginTop: 8,  marginBottom: 8,
-                                    }}>{settingData.modalTips}</Text>
+                                    {this.renderTitle(settingData)}
+                                    {this.renderModalTips(settingData)}
                                 </View>
                                 {this.renderCloseButton()}
                             </View>
                             <RNSelectGroupButtonsView
-                                onPaymentModeChanged={(item,index)=>{}}
+                                onPaymentModeChanged={(item, index) => {
+                                    if (item && this.props.onPaymentModeChanged) {
+                                        this.props.onPaymentModeChanged(item, index);
+                                    }
+                                }}
                                 data={data}
-                                defaultMode={data[0]}/>
+                                defaultMode={this.defaultMode}/>
                             <SubmitButtonComponent
                                 submitText={'确认'}
                                 canSubmit={this.state.canSubmit}
-                                style={{marginBottom: 10}}
+                                style={this.setSubmitButtonPadding()}
                                 onClickSubmitButton={() => {
                                     this.onClickSubmitButton()
                                 }}/>
@@ -125,8 +127,50 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         )
     }
 
+    //you can set the distance from the bottom
+    setSubmitButtonPadding = () => {
+        let style = {marginBottom: 20};
+        if (this.props.SubmitButtonStyle) {
+            style = this.props.SubmitButtonStyle;
+        }
+        return style;
+    };
+
+    //if need not title,you can transmit ''
+    renderTitle = (settingData) => {
+        let titleColor = '#363C54';
+        if (this.props.titleColor) {
+            titleColor = this.props.titleColor;
+        }
+        if (settingData.modalTitle && settingData.modalTitle.length
+            && settingData.modalTitle.length > 0) {
+            return (
+                <Text style={{color: titleColor, fontSize: 16}}>{settingData.modalTitle}</Text>
+            )
+        }
+    };
+
+    //if need not tips,you can transmit ''
+    renderModalTips = (settingData) => {
+        let tipsColor = '#9B9DA9';
+        if (this.props.tipsColor) {
+            tipsColor = this.props.tipsColor;
+        }
+        return (
+            <Text style={{
+                color: tipsColor,
+                fontSize: 12,
+                marginTop: 8, marginBottom: 8,
+            }}>{settingData.modalTips}</Text>
+        )
+    };
+
     //render close button to show or hide modal
     renderCloseButton = () => {
+        //you can hide the button after setting it up
+        if (this.props.hideCloseButton && this.props.hideCloseButton === true) {
+            return
+        }
         let defaultIcon = require('../../assets/icon_delete.png');
         if (undefined !== this.props.defaultCloseIcon) {
             defaultIcon = this.props.defaultCloseIcon;
@@ -145,7 +189,6 @@ export default class RNSelectGroupButtonsModal extends React.Component {
 
     //when the submitButton clicked
     onClickSubmitButton = () => {
-        console.log('---> onClickSubmitButton');
         this.closeButtonPress()
     };
 
