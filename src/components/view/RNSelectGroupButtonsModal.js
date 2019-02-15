@@ -4,7 +4,6 @@ import {
     Text, KeyboardAvoidingView,
     View,
     Image,
-    Platform,
     BackHandler, PanResponder,
     StyleSheet,
     StatusBar, Dimensions
@@ -28,6 +27,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
         modalTitle: '支付方式',
         modalTips: '点击下方按钮选择支付方式',
         closeWithOutSideClick: true,
+        submitText: '确定'
     };
 
     constructor(props) {
@@ -114,7 +114,7 @@ export default class RNSelectGroupButtonsModal extends React.Component {
                                 data={data}
                                 defaultMode={this.defaultMode}/>
                             <SubmitButtonComponent
-                                submitText={'确认'}
+                                submitText={settingData.submitText}
                                 canSubmit={this.state.canSubmit}
                                 style={this.setSubmitButtonPadding()}
                                 onClickSubmitButton={() => {
