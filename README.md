@@ -18,8 +18,20 @@ It's still under development.Please do not try case installation
 ```javascript
 import RNSelectGroupButtonsModal from 'react-native-select-group-buttons-modal';
 
-// TODO: What to do with the module?
-RNSelectGroupButtonsModal;
+ <RNSelectGroupButtonsModal
+                    settingBuild={this._settingBuild}
+                    onPaymentModeChanged={(item, index) => {
+                        this.setState({
+                            selectText: JSON.stringify(item)
+                        })
+                    }}
+                    data={this.initData()}
+                    closeButtonPress={(flag) => {
+                        this.setState({
+                            selectorVisible: flag
+                        })
+                    }}
+                    selectorVisible={this.state.selectorVisible}/>
 ```
 ## Run Sample
 
