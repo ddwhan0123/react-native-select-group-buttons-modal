@@ -70,6 +70,7 @@ Objects that set underlying properties
         modalTitle: '支付方式',//Main title
         modalTips: '业务控制文字内容',Subheading
         closeWithOutSideClick: true,//Click on the grey area to close the bullet window
+        submitText: '确定'//Bottom Button submit text
     };
 ```
     
