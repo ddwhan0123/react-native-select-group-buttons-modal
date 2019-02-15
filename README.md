@@ -1,6 +1,7 @@
 
 # react-native-select-group-buttons-modal
 
+[中文说明](https://blog.csdn.net/ddwhan0123/article/details/87350792)
 
 ## Getting started
 
