@@ -1,7 +1,6 @@
 
 # react-native-select-group-buttons-modal
 
-It's still under development.Please do not try case installation
 
 ## Getting started
 
